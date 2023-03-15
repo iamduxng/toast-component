@@ -2,10 +2,13 @@ import React from 'react';
 
 import styles from './Button.module.css';
 
-function Button({ className = '', ...delegated }) {
+function Button({ className = '', disabled = false, ...delegated }) {
+  const stateClasses = disabled ? styles.btnDisabled : ''
+  const buttonClasses = `${styles.button} ${className} ${stateClasses}`
+
   return (
     <button
-      className={`${styles.button} ${className}`}
+      className={buttonClasses}
       {...delegated}
     />
   );

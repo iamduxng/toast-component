@@ -13,3 +13,8 @@
   cursor: pointer;
   outline-offset: 4px;
 }
+
+.btnDisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
