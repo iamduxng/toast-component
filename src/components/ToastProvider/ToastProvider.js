@@ -25,7 +25,7 @@ function ToastProvider ({ children }) {
     setToasts(remainingToasts)
   }
 
-  const allContext = () => {
+  const allContext = {
     toasts,
     addToast,
     hideToast,
