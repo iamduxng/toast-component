@@ -1,4 +1,5 @@
 import React from 'react'
+import useKeydown from '../../hooks/use-keydown';
 
 export const DEFAULT_TOAST_TYPE = 'notice'
 
@@ -19,11 +20,15 @@ function ToastProvider ({ children }) {
     setToasts((toasts) => [...toasts, newToast])
   }
 
-
   const hideToast = (removedUid) => {
     const remainingToasts = toasts.filter(toast => removedUid !== toast.uid)
     setToasts(remainingToasts)
   }
+
+  const handleEscape = React.useCallback(() => {
+    setToasts([])
+  }, [])
+  useKeydown('Escape', handleEscape)
 
   const allContext = {
     toasts,
